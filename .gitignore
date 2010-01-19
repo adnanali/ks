@@ -4,3 +4,4 @@ log/*
 tmp/*
 tmp/**/*
 config/database*.yml
+db/*.sqlite3
