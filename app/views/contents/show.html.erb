@@ -1,0 +1,12 @@
+<% title "Content" %>
+
+<p>
+  <strong>Title:</strong>
+  <%=h @content.title %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_content_path(@content) %> |
+  <%= link_to "Destroy", @content, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", contents_path %>
+</p>

@@ -1,0 +1,17 @@
+<% title "Contents" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+  <% for content in @contents %>
+    <tr>
+      <td><%=h content.title %></td>
+      <td><%= link_to "Show", content %></td>
+      <td><%= link_to "Edit", edit_content_path(content) %></td>
+      <td><%= link_to "Destroy", content, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Content", new_content_path %></p>
