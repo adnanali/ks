@@ -12,10 +12,11 @@ class ContentsController < ApplicationController
   end
   
   def create
-    @content = Content.new(params[:content])
+    #@content = Content.new(params[:content])
+    @content = params[:c][:type].camelize.constantize.new(params[:content])
     if @content.save
       flash[:notice] = "Successfully created content."
-      redirect_to @content
+      redirect_to content_path(@content.id)
     else
       render :action => 'new'
     end
