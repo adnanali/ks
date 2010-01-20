@@ -8,5 +8,10 @@
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </p>
+
+  <div id="extra_form">
+    <%= render :partial => @content_type, :locals => { :f => f }  %>
+  </div>
+
   <p><%= f.submit "Submit" %></p>
 <% end %>

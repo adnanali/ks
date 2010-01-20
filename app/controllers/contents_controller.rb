@@ -8,12 +8,16 @@ class ContentsController < ApplicationController
   end
   
   def new
-    @content = Content.new
+    @content_type = "Post"
+    @content_type = @content_type.underscore
+    @content = @content_type.camelize.constantize.new
+    #@content = Content.new
   end
   
   def create
     #@content = Content.new(params[:content])
-    @content = params[:c][:type].camelize.constantize.new(params[:content])
+    @content_type = params[:c][:type].underscore;
+    @content = params[:c][:type].camelize.constantize.new(params[@content_type.to_sym])
     if @content.save
       flash[:notice] = "Successfully created content."
       redirect_to content_path(@content.id)
